@@ -36,7 +36,7 @@ const SettingsPage = () => {
 
   return (
     <>
-      <div className="flex min-h-screen bg-gray-50 text-slate-700">
+      <div className="flex min-h-screen bg-gray-50 text-slate-700 mb-8">
         {/* SIDEBAR */}
         <Aside />
 
