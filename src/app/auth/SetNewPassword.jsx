@@ -47,15 +47,7 @@ const SetNewPassword = () => {
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* New Password Input */}
           <div className="space-y-2">
-            {/* <label className="block text-sm font-bold text-[#1E2661]">New Password</label> */}
             <div className="relative">
-              {/* <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter at least 8 characters"
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all placeholder:text-gray-300"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              /> */}
               <Input 
               label="New Password" type={showPassword ? "text" : "password"}
               value={password} id="password" 
@@ -139,7 +131,7 @@ const SetNewPassword = () => {
           <div className="text-center mt-8">
             <Button
               action={() => navigate('/login')}
-              className="text-indigo-900 font-bold text-sm hover:underline underline-offset-4"
+              className="text-[#000066] bg-transparent shadow-none font-medium hover:bg-transparent mb-0"
               btnText="I remember my password"
             />
           </div>
