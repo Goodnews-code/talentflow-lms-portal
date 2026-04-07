@@ -1,14 +1,21 @@
-import Dashboard from './pages/dashboard/Dashboard'
-// import Home from './pages/dashboard/view/home/Home'
-import { NotFound } from './pages/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from './shared/ui/LandingPage'
+import LoginPage from './app/auth/LoginPage'
+import SignUp from './app/auth/SignUp'
+import EmailVerification from './app/auth/EmailVerification'
+import ForgotPassword from './app/auth/ForgotPassword'
+import SetNewPassword from './app/auth/SetNewPassword'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Dashboard />}/>
-        <Route path="*" element={<NotFound />} />
+        <Route index element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/email-verification" element={<EmailVerification />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/set-new-password" element={<SetNewPassword />} />
       </Routes>
     </BrowserRouter>
   )
