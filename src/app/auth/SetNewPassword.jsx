@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, CheckCircle2, Circle, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../shared/form/Button';
 import Input from '../../shared/form/Input';
 
 const SetNewPassword = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [password, setPassword] = useState('');
-  const [confirmPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+    // Call update password API
+    console.log("Updating password");
+    navigate('/login');
+  };
 
   // Validation Logic
   const validations = {
@@ -31,7 +44,7 @@ const SetNewPassword = () => {
           </p>
         </div>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmit}>
           {/* New Password Input */}
           <div className="space-y-2">
             {/* <label className="block text-sm font-bold text-[#1E2661]">New Password</label> */}
@@ -52,7 +65,7 @@ const SetNewPassword = () => {
               <button 
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute inset-y-0 right-4 flex items-center text-gray-400 hover:text-gray-600"
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -99,17 +112,15 @@ const SetNewPassword = () => {
               <Input
               label="Confirm New Password"
               type={showConfirmPassword ? "text" : "password"}
-              showPassword={showConfirmPassword}
-              setShowPassword={setShowConfirmPassword}
               value={confirmPassword}
               id="confirmPassword"
               placeholder="Repeat your new password"
-
+              action={setConfirmPassword}
                />
               <button 
                 type="button"
                 onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute inset-y-0 right-4 flex items-center text-gray-400 hover:text-gray-600"
               >
                 {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -127,6 +138,7 @@ const SetNewPassword = () => {
           {/* Footer */}
           <div className="text-center mt-8">
             <Button
+              action={() => navigate('/login')}
               className="text-indigo-900 font-bold text-sm hover:underline underline-offset-4"
               btnText="I remember my password"
             />

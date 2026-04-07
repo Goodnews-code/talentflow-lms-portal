@@ -3,6 +3,16 @@ import { useAuth } from '../../../core/auth/AuthContext';
 const Profile = () => {
   const { user } = useAuth();
 
+  const handleEditProfile = () => {
+    console.log("Edit profile");
+    // Navigate to edit profile page or open modal
+  };
+
+  const handleChangePassword = () => {
+    console.log("Change password");
+    // Navigate to change password page
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -38,10 +48,10 @@ const Profile = () => {
             <div className="pt-6 border-t border-gray-200">
               <h3 className="text-lg font-medium text-gray-900 mb-4">Account Actions</h3>
               <div className="space-y-3">
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+                <button type="button" onClick={handleEditProfile} className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
                   Edit Profile
                 </button>
-                <button className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 ml-3">
+                <button type="button" onClick={handleChangePassword} className="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 ml-3">
                   Change Password
                 </button>
               </div>

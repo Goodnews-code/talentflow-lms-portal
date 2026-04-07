@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -22,10 +23,10 @@ const CTASection = () => {
             Join 50+ interns already using TalentFlow at Trueminds Innovations.
           </p>
 
-          <button className="mt-8 flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-orange-600 active:scale-95 shadow-lg shadow-orange-500/30">
+          <Link to="/signup" className="mt-8 flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-orange-600 active:scale-95 shadow-lg shadow-orange-500/30">
             Create New Account
             <ArrowRight size={16} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

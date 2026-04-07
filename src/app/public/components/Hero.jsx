@@ -25,11 +25,11 @@ const TalentFlowHero = () => {
           </p>
           
           <div className="flex items-center gap-4 pt-4">
-            <button className="bg-[#0D1442] text-white px-5 py-2 rounded-md font-semibold hover:bg-opacity-90 transition-all flex items-center gap-2">
-              Get Started <span>→</span>
+            <button type="button" className="bg-[#0D1442] text-white px-5 py-2 rounded-md font-semibold hover:bg-opacity-90 transition-all flex items-center gap-2">
+              Get Started <span aria-label="arrow">→</span>
             </button>
-            <button className="border-2 border-gray-300 text-[#0D1442] px-5 py-2 rounded-md font-semibold hover:bg-gray-50 transition-all flex items-center gap-2">
-              <span className="text-xs">▶</span> Watch Demo
+            <button type="button" className="border-2 border-gray-300 text-[#0D1442] px-5 py-2 rounded-md font-semibold hover:bg-gray-50 transition-all flex items-center gap-2">
+              <span aria-label="play demo" className="text-xs">▶</span> Watch Demo
             </button>
           </div>
         </div>

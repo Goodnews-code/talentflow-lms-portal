@@ -5,6 +5,7 @@ import SignUp from './app/auth/SignUp'
 import EmailVerification from './app/auth/EmailVerification'
 import ForgotPassword from './app/auth/ForgotPassword'
 import SetNewPassword from './app/auth/SetNewPassword'
+import NotFound from './shared/ui/NotFound'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/email-verification" element={<EmailVerification />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/set-new-password" element={<SetNewPassword />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

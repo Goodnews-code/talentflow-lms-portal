@@ -10,7 +10,7 @@ const COURSES = [
   {
     id: 1,
     title: "UI/UX Fundamentals",
-    category: "UI/UX",
+    category: "UI/UX Design",
     instructor: "Mr. Emeka",
     lessons: 8,
     duration: "2 hrs",
@@ -20,7 +20,7 @@ const COURSES = [
   {
     id: 2,
     title: "Brand Identity 101",
-    category: "Design",
+    category: "Graphic Design",
     instructor: "Ms. Aisha",
     lessons: 6,
     duration: "1.5 hrs",
@@ -30,7 +30,7 @@ const COURSES = [
   {
     id: 3,
     title: "HTML & CSS Basics",
-    category: "Frontend",
+    category: "Frontend Dev",
     instructor: "Mr. Chidi",
     lessons: 10,
     duration: "3 hrs",
@@ -53,7 +53,7 @@ const CourseCatalog = () => {
           <h2 className="text-3xl font-extrabold mb-4">
             Browse available courses
           </h2>
-          <p className=" leading-relaxed">
+          <p className="leading-relaxed">
             Explore all courses across every discipline. Sign up to enroll and start learning immediately.
           </p>
         </div>
@@ -81,7 +81,7 @@ const CourseCatalog = () => {
 
       {/* Course Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {COURSES.map((course) => (
+        {COURSES.filter(course => activeCategory === 'All Courses' || course.category === activeCategory).map((course) => (
           <div 
             key={course.id} 
             className="group bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"

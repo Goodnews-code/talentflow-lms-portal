@@ -22,7 +22,7 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-16 px-8 max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <p className="text-xs font-semibold tracking-widest text-slate-500 uppercase">TESTIMONIALS</p>
           <h2 className="mt-2 text-3xl font-extrabold text-blue-900 tracking-tight sm:text-4xl">What every role is saying</h2>

@@ -1,18 +1,44 @@
 import React, { useState, useRef } from "react";
 import { Mail, RotateCw, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../shared/form/Button";
 
-const EmailVerification = () => {
+const EmailVerification = ({ email = "your email" }) => {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const inputRefs = useRef([]);
+  const navigate = useNavigate();
+
+  const handleVerifyEmail = () => {
+    const otpCode = otp.join("");
+    if (otpCode.length === 6) {
+      // Call verification API
+      console.log("Verifying OTP:", otpCode);
+      // On success, navigate to dashboard or something
+      navigate("/");
+    } else {
+      alert("Please enter the complete 6-digit code.");
+    }
+  };
+
+  const handleResendCode = () => {
+    // Call resend API
+    console.log("Resending verification code to", email);
+    alert("Verification code resent.");
+  };
+
+  const handleUseDifferentEmail = () => {
+    // Navigate back to signup
+    navigate("/signup");
+  };
 
   const handleChange = (element, index) => {
-    if (isNaN(element.value)) return false;
+    const value = element.value.trim();
+    if (!/^\d$/.test(value)) return false;
 
-    setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
+    setOtp([...otp.map((d, idx) => (idx === index ? value : d))]);
 
     // Focus next input
-    if (element.value !== "" && index < 5) {
+    if (value !== "" && index < 5) {
       inputRefs.current[index + 1].focus();
     }
   };
@@ -47,7 +73,7 @@ const EmailVerification = () => {
           </h2>
           <p className="text-gray-500 text-sm leading-relaxed mb-8 px-4">
             We've sent a 6-digit verification code to <br />
-            <span className="font-bold text-[#000066]">hello@example.com.</span>
+            <span className="font-bold text-[#000066]">{email}.</span>
             <br />
             Please enter it below to verify your account.
           </p>
@@ -70,6 +96,7 @@ const EmailVerification = () => {
 
           {/* Verify Button */}
           <Button
+            action={handleVerifyEmail}
             btnText="Verify Email"
             icon={<ArrowRight size={18} />}
             className="text-white"
@@ -81,12 +108,14 @@ const EmailVerification = () => {
             <p className="text-gray-400 text-sm">Didn't receive the code?</p>
 
             <Button
+              action={handleResendCode}
               icon={<RotateCw size={16} />}
               className="bg-transparent shadow-none text-[#000066] font-bold hover:bg-transparent mb-0"
               btnText="Resend Verification Code"
             />
 
             <Button
+              action={handleUseDifferentEmail}
               className="text-gray-400 bg-transparent shadow-none hover:bg-transparent text-sm hover:text-gray-600 transition-colors"
               btnText="Use a different email address"
             />

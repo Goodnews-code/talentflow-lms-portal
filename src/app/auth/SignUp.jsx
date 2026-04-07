@@ -8,24 +8,23 @@ import AuthPage from "./Auth";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const userTypes = ["Learner", "Mentor", "Educator"];
+  const disciplines = ["UI/UX Design", "Data Science", "Backend Development", "Project Management"];
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [learnerType, setLearnerType] = useState("");
-  const [discipline, setDiscipline] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [agreedTerms, setAgreedTerms] = useState(false);
-
-  const userTypes = ["Learner", "Mentor", "Educator"];
-  const disciplines = ["UI/UX Design", "Data Science", "Backend Development", "Project Management"];
+  const [learnerType, setLearnerType] = useState(userTypes[0]);
+  const [discipline, setDiscipline] = useState(disciplines[0]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!agreedTerms) {
       alert("Please agree to the Terms of Service and Privacy Policy.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
       return;
     }
     console.log("Form data submitted:", {
@@ -34,8 +33,6 @@ const SignUp = () => {
       email,
       learnerType,
       discipline,
-      password,
-      confirmPassword,
       agreedTerms,
     });
     navigate("/email-verification");
@@ -45,7 +42,7 @@ const SignUp = () => {
     <>
       <AuthPage
         sectionImage="/signup-img.jpg"
-        rest={
+        children={
           <Form
             header="Create your account"
             subText="Create your account to start your learning journey."
@@ -144,7 +141,7 @@ const SignUp = () => {
                 />
               </>
             }
-            rest={
+            additionalContent={
               <>
                 <div className="flex items-center gap-3 py-2">
                   <input

@@ -7,7 +7,7 @@ import {
   Bell 
 } from 'lucide-react';
 
-const FeaturesSection = () => {
+const FeatureSection = () => {
   // Data array for easy maintenance
   const features = [
     {
@@ -83,4 +83,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection;
+export default FeatureSection;

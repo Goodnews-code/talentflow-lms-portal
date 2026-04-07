@@ -1,25 +1,26 @@
 import React from 'react';
 import { Globe, AtSign, Share2 } from 'lucide-react';
 
+const footerLinks = [
+  {
+    title: "PLATFORM",
+    links: ["Features", "How It Works", "Course Catalog", "Certificates"],
+  },
+  {
+    title: "ROLES",
+    links: ["For Learners", "For Instructors", "For Admins"],
+  },
+  {
+    title: "SUPPORT",
+    links: ["Help Centre", "Contact Us", "FAQs"],
+  },
+  {
+    title: "COMPANY",
+    links: ["About TalentFlow", "Privacy Policy", "Terms of Service"],
+  },
+];
+
 const Footer = () => {
-  const footerLinks = [
-    {
-      title: "PLATFORM",
-      links: ["Features", "How It Works", "Course Catalog", "Certificates"],
-    },
-    {
-      title: "ROLES",
-      links: ["For Learners", "For Instructors", "For Admins"],
-    },
-    {
-      title: "SUPPORT",
-      links: ["Features", "Help Centre", "Contact Us", "FAQs"],
-    },
-    {
-      title: "COMPANY",
-      links: ["Features", "About TalentFlow", "Privacy Policy", "Terms of Service"],
-    },
-  ];
 
   return (
     <footer id="contact" className="bg-white pt-16 pb-8 border-t border-slate-100">
@@ -37,9 +38,9 @@ const Footer = () => {
               The official learning management platform for Trueminds Innovations internship programme.
             </p>
             <div className="flex gap-6 text-blue-900/70 pt-4">
-              <a href="#" className="hover:text-orange-500 transition-colors"><Globe size={20} /></a>
-              <a href="#" className="hover:text-orange-500 transition-colors"><AtSign size={20} /></a>
-              <a href="#" className="hover:text-orange-500 transition-colors"><Share2 size={20} /></a>
+              <a href="#" aria-label="Website" className="hover:text-orange-500 transition-colors"><Globe size={20} /></a>
+              <a href="#" aria-label="Email" className="hover:text-orange-500 transition-colors"><AtSign size={20} /></a>
+              <a href="#" aria-label="Share" className="hover:text-orange-500 transition-colors"><Share2 size={20} /></a>
             </div>
           </div>
 

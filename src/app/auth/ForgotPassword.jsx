@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { X, Shield, ArrowLeft } from "lucide-react"; // Using lucide-react for icons
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../shared/form/Button";
 import Input from "../../shared/form/Input";
 
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
@@ -24,7 +25,7 @@ const ForgotPassword = () => {
           <h2 className="text-lg font-serif font-semibold text-gray-800">
             Security
           </h2>
-          <button className="text-gray-400 bg-[#F1F5F9] p-1 rounded-full hover:text-gray-600 transition-colors">
+          <button onClick={() => navigate(-1)} className="text-gray-400 bg-[#F1F5F9] p-1 rounded-full hover:text-gray-600 transition-colors">
             <X className="w-6 h-6 text-[#047857]" />
           </button>
         </div>
@@ -67,7 +68,7 @@ const ForgotPassword = () => {
             />
           </form>
 
-          <Link to="/set-new-password" className="font-bold text-indigo-900 hover:underline block text-center mt-4">
+          <Link to="/login" className="font-bold text-indigo-900 hover:underline block text-center mt-4">
             I remember my password
           </Link>
 

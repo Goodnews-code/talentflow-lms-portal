@@ -45,9 +45,9 @@ const HowItWorks = () => {
               </div>
 
               {/* Text Content */}
-              <h4 className="text-xl font-bold text-blue-950 mb-3">
+              <h3 className="text-xl font-bold text-blue-950 mb-3">
                 {step.title}
-              </h4>
+              </h3>
               <p className="text-blue-900/70 text-sm leading-relaxed max-w-[250px]">
                 {step.description}
               </p>

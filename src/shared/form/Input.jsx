@@ -1,5 +1,5 @@
 import { Eye, EyeOff, AlertCircle } from "lucide-react";
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 
 const Input = forwardRef(({
   label,
@@ -14,6 +14,7 @@ const Input = forwardRef(({
 }, ref) => {
   const hasError = !!error;
   const inputOnChange = action ?? props.onChange;
+  const id = props.id || useId();
   const inputProps = {
     ...props,
     onChange: inputOnChange,
@@ -23,15 +24,16 @@ const Input = forwardRef(({
   return (
     <div className="relative" style={{width: inputLength ? `${inputLength}%` : '100%'}}>
       {label && (
-        <label htmlFor={props.id} className="block text-sm font-semibold text-navy-900 mb-2">
+        <label htmlFor={id} className="block text-sm font-semibold text-navy-900 mb-2">
           {label}
         </label>
       )}
       <div className="relative">
         <input
-          type={type}
+          type={showPassword !== undefined && type === "password" ? (showPassword ? "text" : "password") : type}
           placeholder={placeholder}
           ref={ref}
+          id={id}
           className={`w-full relative px-4 py-3 rounded-lg border transition focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none ${
             hasError
               ? 'border-red-300 focus:ring-red-500'
@@ -44,11 +46,12 @@ const Input = forwardRef(({
             type="button"
             onClick={() => setShowPassword(!showPassword)}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            aria-label={showPassword ? "Hide password" : "Show password"}
           >
             {showPassword ? (
-              <EyeOff size={20} className="h-5 w-5 text-[#000066]" />
+              <EyeOff className="h-5 w-5 text-[#000066]" />
             ) : (
-              <Eye size={20} className="h-5 w-5 text-[#000066]" />
+              <Eye className="h-5 w-5 text-[#000066]" />
             )}
           </button>
         )}

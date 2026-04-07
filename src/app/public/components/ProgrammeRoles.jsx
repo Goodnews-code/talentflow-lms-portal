@@ -67,7 +67,7 @@ const ProgrammeRoles = () => {
   return (
     <section id="about" className="py-16 px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <span className="text-xs font-bold tracking-wides uppercase">
+        <span className="text-xs font-bold tracking-wide uppercase">
           Who it's for
         </span>
         <h2 className="mt-2 text-4xl font-extrabold text-blue-900 tracking-tight">

@@ -11,14 +11,30 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleUserLogin = () => {
-    console.log("Logging in with:", email, password);
-    if (email === "admin@gmail.com" && password === "password123") {
-      console.log("Login successful!");
-      navigate("/");
-    } else {
-      console.log("Invalid credentials");
+  const handleUserLogin = async () => {
+    try {
+      const response = await fetch('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        // Assume token in data.token, store based on rememberMe
+        if (rememberMe) {
+          localStorage.setItem('token', data.token);
+        } else {
+          sessionStorage.setItem('token', data.token);
+        }
+        navigate("/");
+      } else {
+        alert("Login failed");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Login error");
     }
   };
 
@@ -26,7 +42,7 @@ const LoginPage = () => {
     <>
       <AuthPage
         sectionImage="/login-img.jpg"
-        rest={
+        children={
           <div className="w-full max-w-md space-y-8">
             <Form
               header="Welcome back"
@@ -53,12 +69,14 @@ const LoginPage = () => {
                   />
                 </>
               }
-              rest={
+              additionalContent={
                 <>
                   <div className="flex items-center justify-between text-sm">
                     <label className="flex items-center space-x-2 cursor-pointer">
                       <input
                         type="checkbox"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
                         className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                       />
                       <span className="text-gray-600">Remember me for 30 days</span>
@@ -89,13 +107,13 @@ const LoginPage = () => {
               <Button
                 className="bg-transparent hover:bg-gray-50 shadow-none border border-gray-300 text-gray-800 font-medium"
                 iconUrl="https://www.svgrepo.com/show/475656/google-color.svg"
-                btnText="Sign up with Google"
+                btnText="Sign in with Google"
                 action={() => console.log("Google Login")}
               />
               <Button
                 className="bg-transparent hover:bg-gray-50 shadow-none border border-gray-300 text-gray-800 font-medium"
                 iconUrl="https://www.svgrepo.com/show/511330/apple-fill.svg"
-                btnText="Sign up with Apple"
+                btnText="Sign in with Apple"
                 action={() => console.log("Apple Login")}
               />
             </div>

@@ -49,6 +49,7 @@ const NavBar = () => {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false); // Close mobile menu after scrolling
     }
   };
 
@@ -65,7 +66,7 @@ const NavBar = () => {
       
       {/* 1. Left Section: Logo */}
       <div className="flex-1 flex justify-start">
-        <a href="#welcome" onClick={scrollToWelcome} className="z-50 shrink-0">
+        <a href="#home" onClick={scrollToWelcome} className="z-50 shrink-0">
           <img src="/logo.png" alt="TalentFlow Logo" className="w-28 md:w-30" />
         </a>
       </div>
