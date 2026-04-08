@@ -23,9 +23,8 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 px-8 max-w-7xl mx-auto">
+    <section className="py-16 px-8 max-w-7xl mx-auto">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-xs font-bold tracking-widest text-blue-900 uppercase mb-3">
             HOW IT WORKS
@@ -35,16 +34,13 @@ const HowItWorks = () => {
           </h2>
         </div>
 
-        {/* Steps Container */}
         <div className="flex flex-col items-center md:flex-row justify-between md:items-start gap-12 md:gap-6">
           {steps.map((step, index) => (
             <div key={index} className="flex-1 flex flex-col items-center text-center">
-              {/* Orange Number Circle */}
               <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-xl mb-6 shadow-sm">
                 {step.number}
               </div>
 
-              {/* Text Content */}
               <h3 className="text-xl font-bold text-blue-950 mb-3">
                 {step.title}
               </h3>

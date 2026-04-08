@@ -14,7 +14,7 @@ import {
 
 const Aside = () => {
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 hidden md:flex flex-col">
+    <aside className="fixed top-0 left-0 w-64 bg-white border-r border-gray-200 hidden md:flex flex-col">
       <div className="p-6 flex items-center gap-2">
         <a href="#home" className="z-50 shrink-0">
           <img src="/logo.png" alt="TalentFlow Logo" className="w-28 md:w-30" />

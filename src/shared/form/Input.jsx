@@ -36,7 +36,7 @@ const Input = forwardRef(({
           ref={ref}
           id={id}
           icon={icon}
-          className={`w-full relative px-4 py-3 rounded-lg border transition focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none ${
+          className={`w-full relative px-4 py-3 rounded-lg border-1 transition outline-none ${
             hasError
               ? 'border-red-300 focus:ring-red-500'
               : 'border-gray-300'

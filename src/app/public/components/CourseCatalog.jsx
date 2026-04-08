@@ -96,7 +96,7 @@ const CourseCatalog = () => {
             </div>
 
             {/* Content */}
-            <div className="p-6 flex flex-col flex-grow">
+            <div className="p-6 flex flex-col grow">
               <span className="inline-block px-3 py-1 rounded-md bg-slate-50 border border-slate-200 text-xs font-bold text-slate-600 mb-4 w-fit">
                 {course.category}
               </span>

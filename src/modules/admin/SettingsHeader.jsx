@@ -3,7 +3,7 @@ import { Search, Bell, User } from "lucide-react";
 
 const SettingsHeader = () => {
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8">
+    <header className="fixed top-0 left-64 w-[calc(100%-16rem)] h-16 bg-white border-b border-gray-200 flex items-center justify-between px-8 z-50">
       <div className="relative w-96">
         <Search
           className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"

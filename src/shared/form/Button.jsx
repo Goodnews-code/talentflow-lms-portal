@@ -12,7 +12,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`w-full bg-[#000066] hover:bg-[#000044] py-3 rounded-lg font-bold flex items-center justify-center space-x-2 transition shadow-lg ${className}`}
+      className={`w-full bg-[#000066] hover:bg-[#000044] py-3 rounded-lg font-bold flex items-center justify-center space-x-2 transition shadow-lg cursor-pointer ${className}`}
       onClick={action}
       {...(!btnText && { 'aria-label': iconAlt || 'Button' })}
     >

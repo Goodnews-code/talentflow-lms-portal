@@ -8,7 +8,6 @@ import {
 } from 'lucide-react';
 
 const FeatureSection = () => {
-  // Data array for easy maintenance
   const features = [
     {
       title: "Centralised Course Library",

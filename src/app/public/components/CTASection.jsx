@@ -10,7 +10,6 @@ const CTASection = () => {
           backgroundImage: `url('/cta.jpg')` 
         }}
       >
-        {/* Semi-transparent overlay to make text pop */}
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]"></div>
 
         {/* Content Container */}
