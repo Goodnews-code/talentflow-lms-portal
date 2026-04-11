@@ -113,3 +113,8 @@ code {
   padding: 4px 8px;
   background: #f4f3ec;
 }
+
+/* Custom utility classes */
+.btn-orange {
+  background-color: #ff7a00;
+}
